@@ -1,0 +1,5 @@
+python310.zip
+.
+..
+..\.venv\Lib\site-packages
+import site

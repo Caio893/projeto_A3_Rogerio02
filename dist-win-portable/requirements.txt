@@ -1,0 +1,8 @@
+numpy>=1.24,<2
+glfw>=2.6.2
+PyGLM>=2.7.0
+Pillow>=9.5
+PyOpenGL>=3.1.7
+noise>=1.2.2
+# Wheel local e restrito a Windows/CPython 3.10.
+fbx @ file:fbx_sdk/FBX%20Python%20SDK/2020.3.7/fbx-2020.3.7-cp310-none-win_amd64.whl ; sys_platform == "win32" and python_version == "3.10"
