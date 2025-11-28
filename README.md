@@ -49,7 +49,7 @@ Objetivo: iniciar os scripts caso os .bat falhem, usando o VSCode ou um terminal
 - Sobre o FBX: o wheel esperado e `fbx-2020.3.7-cp310-none-win_amd64.whl`.
   * Se o zip tiver a pasta `fbx_sdk/FBX Python SDK/2020.3.7/`, instale direto com:
     python -m pip install "fbx_sdk/FBX Python SDK/2020.3.7/fbx-2020.3.7-cp310-none-win_amd64.whl"
-  * Caso a pasta nao exista, baixe o "FBX Python SDK 2020.3.7" para CPython 3.10 (Windows) e instale apontando para o .whl correspondente.
+  * Caso a pasta nao exista, baixe o "FBX Python SDK 2020.3.7" para CPython 3.10 (Windows) Link: https://damassets.autodesk.net/content/dam/autodesk/www/files/fbx202037_fbxpythonsdk_win.exe e instale apontando para o .whl correspondente.
 - No VSCode, selecione o interpretador `.venv\Scripts\python.exe` depois da instalacao.
 
 4) Como rodar pelo VSCode
@@ -57,9 +57,3 @@ Objetivo: iniciar os scripts caso os .bat falhem, usando o VSCode ou um terminal
 - Com o interpretador correto selecionado, execute:
   python "05 - open_world_simulation.py"
   python "05 - advanced_world.py"
-- Para depurar, crie um `launch.json` apontando para o script escolhido e para o interpretador da .venv.
-
-5) Dicas rapidas
-- Se o import do `fbx` falhar, confira se esta em Python 3.10 e se o wheel foi instalado.
-- `runtime_bootstrap.py` ja tenta reabrir o script com um Python que tenha o SDK; use `FBX_PYTHON_EXECUTABLES` para informar caminhos extras.
-- Nao renomeie nem mova pastas como FBX models, Textures ou Heightmaps para evitar erros de caminho.
