@@ -18,7 +18,7 @@ Criar um ambiente usando o .venv dentro do projeto
 - Clique em Insira o caminho do interpretador
 - E escolha o python.exe na pasta python-3.10.11-embed-amd64:
 
-Tentei fazer de forma simples apenas clicando no .bat mas aparentemente não funciona direto em outros pcs, então essa parte aqui para abaixo pode ser desconsiderada, apenas o guia acima funcionou em outra maquina além da minha.
+## Tentei fazer de forma simples apenas clicando no .bat mas aparentemente não funciona direto em outros pcs, então essa parte aqui para abaixo pode ser desconsiderada, apenas o guia acima funcionou em outra maquina além da minha.
 
 
 Guia data e mais técnico para instalar o ambiente sem o .venv
