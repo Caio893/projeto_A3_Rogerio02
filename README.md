@@ -42,3 +42,26 @@ Notas
 - Requisitos: Windows 64 bits, driver OpenGL 3.3+, GPU razoavel.
 - `runtime_bootstrap.py` tenta relancar com um Python que tenha o SDK; opcionalmente defina `FBX_PYTHON_EXECUTABLES` com outros pythons.
 - Nao renomeie/mova as pastas FBX models, Textures, Heightmaps, python-3.10.11-embed-amd64 ou .venv.
+
+
+
+Caso os .bat falhem siga esse guia:
+
+    Nao mova/renomeie as pastas internas (FBX models, Textures, Heightmaps, python-3.10.11-embed-amd64, .venv).
+    O runtime portatil adiciona ~8-9 MB ao zip distribuido (e ~16 MB apos extraido).
+    Se o arquivo .bat nao iniciar, clique com botao direito e escolha "Executar como administrador" (em alguns ambientes bloqueados).
+
+
+    Criar um ambiente do zero (se a .venv quebrar ou em outra maquina)
+
+    Instale o Python 3.10.11 64-bit com a opcao "Add python.exe to PATH".
+    No terminal na pasta do projeto: python -m venv .venv ..venv\Scripts\activate python -m pip install --upgrade pip python -m pip install -r requirements.txt
+    Sobre o FBX: o wheel esperado e já esta na pasta o .exe onde extrai o fbx-2020.3.7-cp310-none-win_amd64.whl. python -m pip install "fbx_sdk/FBX Python SDK/2020.3.7/fbx-2020.3.7-cp310-none-win_amd64.whl" // Local onde o .exe estrair o .whl
+        Caso queira baixar diretamente do site Link: https://damassets.autodesk.net/content/dam/autodesk/www/files/fbx202037_fbxpythonsdk_win.exe e instale apontando para o .whl correspondente.
+    No VSCode, selecione o interpretador .venv\Scripts\python.exe depois da instalacao. //python310
+
+    Como rodar pelo VSCode
+
+    Mantenha o terminal aberto na raiz do projeto (onde estao as pastas Textures, Heightmaps, FBX models).
+    Com o interpretador correto selecionado, execute: python "05 - open_world_simulation.py" python "05 - advanced_world.py"
+
