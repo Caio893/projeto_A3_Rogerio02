@@ -9,6 +9,8 @@ Pacote portavel (Windows 64 bits)
    - run_advanced_world.bat
 3) Os atalhos usam o Python 3.10 portatil incluso (pasta python-3.10.11-embed-amd64) e o conjunto de dependencias pre-instaladas em .venv\Lib\site-packages (incluindo FBX SDK). Nao precisa de Python instalado no Windows.
 
+Se a pasta `.venv` vier vazia (ex.: clonando o repo), rode `python portable_env_builder.py` dentro de `dist-win-portable` com um Python 3.10 em Windows. O script cria a venv e instala as dependencias a partir da internet ou de wheels locais (`fbx_sdk/FBX Python SDK/2020.3.7/fbx-2020.3.7-cp310-none-win_amd64.whl`).
+
 Requisitos:
 - Windows 64 bits com driver OpenGL 3.3+ funcional.
 - GPU dedicada ou integrada recente (melhor desempenho).
