@@ -6,11 +6,7 @@ Criar um ambiente usando o .venv dentro do projeto
 
   `python -m venv .venv`
   
-  `.\.venv\Scripts\activate`
-
-ou
-
-   `\.venv\Scripts\activate` Essa parte eu me confundo professor.
+  `.\.venv\Scripts\activate` ou `\.venv\Scripts\activate` Essa parte eu me confundo professor.
 
   `python -m pip install --upgrade pip`
 
