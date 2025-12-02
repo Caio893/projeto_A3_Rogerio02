@@ -18,7 +18,9 @@ from typing import List
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 REQUIREMENTS_PATH = PROJECT_ROOT / "requirements.txt"
-DEFAULT_WHEEL_DIR = PROJECT_ROOT / "fbx_sdk" / "FBX Python SDK" / "2020.3.7"
+DEFAULT_WHEEL_DIR = (
+    PROJECT_ROOT / "Arquivos SDK para extraidos do fbx202037_fbxpythonsdk_win.exe" / "2020.3.7"
+)
 VENV_DIR = PROJECT_ROOT / ".venv"
 
 
