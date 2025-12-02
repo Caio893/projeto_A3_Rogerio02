@@ -12,7 +12,7 @@ Criar um ambiente usando o .venv dentro do projeto
 
   `python -m pip install -r requirements.txt`
 
-Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
+- Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
 - Dentro do vsode aperte Control + Shift + P
 - Vá em ou digite "Escolher Interpretador"
 - Clique em Insira o caminho do interpretador
