@@ -3,10 +3,10 @@ Guia de instalação de ambiente
 
 Criar um ambiente usando o .venv dentro do projeto
 - Com vsCode aberto no terminal na pasta do projeto:
-  `python -m venv .venv`
-  `.\.venv\Scripts\activate` ou `\.venv\Scripts\activate` Essa parte eu me confundo professor.
-  `python -m pip install --upgrade pip`
-  `python -m pip install -r requirements.txt`
+  `python -m venv .venv
+  .\.venv\Scripts\activate ou `\.venv\Scripts\activate` Essa parte eu me confundo professor.
+  python -m pip install --upgrade pip
+  python -m pip install -r requirements.txt`
 
 Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
 - Dentro do vsode aperte Control + Shift + P
