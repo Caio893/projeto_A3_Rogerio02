@@ -100,6 +100,7 @@ NEAR_PLANE = 0.1
 FAR_PLANE = 2000.0
 
 TERRAIN_RESOLUTION = 256
+# Requisito 1.a: comprimento/largura do terreno com 400 m garante o minimo de 300 m pedido.
 TERRAIN_SIZE = 400.0  # meters
 TERRAIN_HEIGHT = 9.0
 TERRAIN_TEXTURE_REPEAT = 24.0
@@ -131,6 +132,7 @@ GRAVITY = -18.0
 MOUSE_SENSITIVITY = 0.12
 FACING_CORRECTION_RAD = math.pi  # Corrige modelos que estao voltados para tras
 
+# Requisito 3.a: 1 minuto real avanca 1 hora simulada para o sol cruzar de leste (+X) a oeste (-X) em 24h.
 SIM_HOURS_PER_REAL_SECOND = 24.0 / 60.0  # ciclo completo de dia/noite em ~60s reais
 
 CHARACTER_SPECS = [
@@ -487,6 +489,7 @@ def fractal_noise(x: float, y: float, seed: int) -> float:
     return total / max_value if max_value > 0 else 0.0
 
 
+# Requisito 1 e 1.b: gera terreno procedural via ruido Perlin e UVs para receber textura.
 def create_terrain_mesh(seed: int) -> TerrainResource:
     resolution = TERRAIN_RESOLUTION
     size = TERRAIN_SIZE
@@ -574,6 +577,7 @@ def create_terrain_mesh(seed: int) -> TerrainResource:
 
     glBindVertexArray(0)
 
+    # Requisito 1.b: carrega e aplica textura difusa no terreno.
     texture_id, texture_path = pick_terrain_texture()
 
     mesh = MeshResource(
@@ -947,6 +951,7 @@ def update_character_instances(motion_states: Sequence[dict], terrain: TerrainRe
         instance.normal_matrix = glm.mat3(glm.transpose(glm.inverse(model_matrix)))
 
 
+# Requisito 3.c: prepara shadow map usado na geracao de sombras.
 def create_shadow_map(size: int) -> ShadowMap:
     depth_texture = glGenTextures(1)
     glBindTexture(GL_TEXTURE_2D, depth_texture)
@@ -978,6 +983,7 @@ def create_shadow_map(size: int) -> ShadowMap:
     return ShadowMap(fbo=fbo, texture=depth_texture, size=size)
 
 
+# Requisitos 2.c, 3.a e 3.b: move o sol, ajusta ceu e fog conforme hora simulada.
 def compute_environment(sim_hours: float) -> dict:
     sun_angle = math.tau * ((sim_hours - 6.0) / 24.0)  # 06h nasce no leste (x+), 18h se poe no oeste (x-)
     radius = 900.0
@@ -1197,6 +1203,7 @@ def render_instances(instances: Sequence[SceneInstance], model_loc: int, normal_
             glBindVertexArray(0)
 
 
+# Requisito 3.c: passa de profundidade para projetar sombras da luz solar.
 def render_shadow_pass(depth_shader: int, instances: Sequence[SceneInstance], light_space_matrix: glm.mat4,
                       shadow_map: ShadowMap, time_now: float):
     glViewport(0, 0, shadow_map.size, shadow_map.size)
@@ -1280,6 +1287,7 @@ def render_scene(scene_shader: int, instances: Sequence[SceneInstance], camera: 
     glUniform3fv(glGetUniformLocation(scene_shader, "lightDir"), 1, glm.value_ptr(env["sun_direction"]))
     glUniform3fv(glGetUniformLocation(scene_shader, "lightColor"), 1, glm.value_ptr(env["sun_color"]))
     glUniform3fv(glGetUniformLocation(scene_shader, "ambientColor"), 1, glm.value_ptr(env["ambient"]))
+    # Requisito 2.c: aplica parametros de fog dinamico calculados para a hora atual.
     glUniform3fv(glGetUniformLocation(scene_shader, "fogColor"), 1, glm.value_ptr(env["fog_color"]))
     glUniform1f(glGetUniformLocation(scene_shader, "fogDensity"), env["fog_density"])
     glUniform1f(glGetUniformLocation(scene_shader, "fogBaseDensity"), env["fog_density"])
@@ -1294,6 +1302,7 @@ def render_scene(scene_shader: int, instances: Sequence[SceneInstance], camera: 
 
     glUniform1i(glGetUniformLocation(scene_shader, "diffuseTexture"), 0)
     glActiveTexture(GL_TEXTURE1)
+    # Requisito 3.c: vincula shadow map gerado pela luz solar para aplicar sombras projetadas.
     glBindTexture(GL_TEXTURE_2D, shadow_map.texture)
     glUniform1i(glGetUniformLocation(scene_shader, "shadowMap"), 1)
 
@@ -1463,6 +1472,7 @@ def main():
         update_character_instances(motion_states, terrain, current_time)
 
         env = compute_environment(sim_hours)
+        # Requisito 3.b: usa a cor do ceu que varia com o horario da simulacao.
         glClearColor(env["sky_color"].x, env["sky_color"].y, env["sky_color"].z, 1.0)
 
         light_space_matrix = compute_light_space_matrix(env["sun_position"])

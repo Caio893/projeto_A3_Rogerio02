@@ -76,7 +76,7 @@ FOG_DENSITY = 0.0009  # Req 1c: densidade do fog atmosferico
 
 SUN_ORBIT_RADIUS = 900.0
 SHADOW_MAP_RESOLUTION = 2048
-SIM_HOURS_PER_REAL_SECOND = 24.0 / 60.0  # ciclo completo em ~60s reais
+SIM_HOURS_PER_REAL_SECOND = 24.0 / 60.0  # Req 3a: cada minuto real avanca 1h simulada do sol leste->oeste
 
 FBX_CHARACTERS = [
     {
@@ -1168,6 +1168,7 @@ def setup_shadow_resources():
 def update_sun_state(hours_of_day: float):
     global sun_direction, sun_color, sky_color, fog_color, sun_position, light_space_matrix, sun_light_factor, sun_fog_density, sun_ambient_color
 
+    # Req 3a: sol orbita de leste (x+) para oeste (x-) em 24h simuladas (~60s reais).
     angle = math.tau * ((hours_of_day - 6.0) / 24.0)  # 06h no leste (x+), 18h no oeste (x-)
 
     sun_position = glm.vec3(
@@ -1186,8 +1187,10 @@ def update_sun_state(hours_of_day: float):
     dawn_mix = _smoothstep(-0.25, 0.05, altitude)
     day_mix = _smoothstep(0.05, 0.45, altitude)
     sun_light_factor = day_mix
+    # Req 3b: cor do ceu (sky_color) muda conforme hora do dia simulada.
     sky_color = glm.mix(night_sky, dusk_sky, dawn_mix)
     sky_color = glm.mix(sky_color, day_sky, day_mix)
+    # Req 1c: fog (cor/densidade) ajustado pelo horario.
     fog_color = glm.mix(night_sky, day_sky, day_mix)
 
     sun_color = glm.mix(glm.vec3(1.0, 0.45, 0.25), glm.vec3(1.0, 0.98, 0.9), day_mix)
@@ -1200,6 +1203,7 @@ def update_sun_state(hours_of_day: float):
     light_projection = glm.ortho(-extent, extent, -extent, extent, -1200.0, 1200.0)
     light_space_matrix = light_projection * light_view
 
+    # Req 3b: aplica cor do ceu calculada ao clear da cena.
     glClearColor(sky_color.x, sky_color.y, sky_color.z, 1.0)
 
 
@@ -1614,6 +1618,7 @@ def render_main_pass(time_now: float):
     glUniform1i(glGetUniformLocation(main_shader, "diffuseMap"), 0)
 
     glActiveTexture(GL_TEXTURE1)
+    # Req 3c: usa shadow map calculado no passe de profundidade para projetar sombras.
     glBindTexture(GL_TEXTURE_2D, shadow_texture)
     glUniform1i(glGetUniformLocation(main_shader, "shadowMap"), 1)
 
@@ -1728,6 +1733,7 @@ def main():
         delta_time = current_time - last_time
         last_time = current_time
 
+        # Req 3a: avanca 1h simulada por minuto real para animar a trajetoria solar.
         sim_hours = (sim_hours + delta_time * SIM_HOURS_PER_REAL_SECOND) % 24.0
 
         glfw.poll_events()
