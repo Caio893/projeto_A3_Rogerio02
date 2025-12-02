@@ -16,9 +16,9 @@ Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretado
 - Dentro do vsode aperte Control + Shift + P
 - Vá em ou digite "Escolher Interpretador"
 - Clique em Insira o caminho do interpretador
-- E escolha o python.exe pasta python-3.10.11-embed-amd64:
+- E escolha o python.exe na pasta python-3.10.11-embed-amd64:
 
-Tentei fazer de forma simples apernas clicando no .bat mas aparentemente não funciona direto em outros pcs, então essa parte aqui para baixo pode ser desconsiderada, apenas o guia acima funcionou em outra maquina além da minha.
+Tentei fazer de forma simples apenas clicando no .bat mas aparentemente não funciona direto em outros pcs, então essa parte aqui para abaixo pode ser desconsiderada, apenas o guia acima funcionou em outra maquina além da minha.
 
 
 Guia data e mais técnico para instalar o ambiente sem o .venv
