@@ -6,7 +6,7 @@ Criar um ambiente usando o .venv dentro do projeto
 
   `python -m venv .venv`
   
-  `.\.venv\Scripts\activate
+  `.\.venv\Scripts\activate`
 
   `py.venv\Scripts\activate`
 
@@ -22,14 +22,14 @@ Rodar pelo terminal do VSCode usando o python e libs da .venv:
   python "05 - advanced_world.py"
   ```
 
-
+ - OPCIONAL ABAIXO
 - Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
 - Dentro do vsode aperte Control + Shift + P
 - Vá em ou digite "Escolher Interpretador"
 - Clique em Insira o caminho do interpretador
 - E escolha o python.exe na pasta python-3.10.11-embed-amd64:
 
-## Tentei fazer de forma simples apenas clicando no .bat mas aparentemente não funciona então ignore. Então essa parte abaixo foi feita no Pc da faculdade, apenas o guia acima funcionou em outra maquina além da minh de casa que já tinha Python.
+## Tentei fazer de forma simples apenas clicando no .bat mas aparentemente não funciona então ignore. Então essa parte abaixo foi feita no Pc da faculdade, apenas o guia acima funcionou em outra maquina além da minha de casa que já tinha Python.
 
 
 Guia mais técnico para instalar o ambiente com e sem o .venv? Só testei usando o o .venv
