@@ -2,10 +2,6 @@
 
 from __future__ import annotations
 
-from runtime_bootstrap import ensure_supported_runtime
-
-ensure_supported_runtime()
-
 import ctypes
 import math
 import os
