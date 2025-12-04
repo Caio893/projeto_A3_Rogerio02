@@ -17,6 +17,13 @@ Criar um ambiente usando o .venv dentro do projeto
 
 Rodar pelo terminal do VSCode usando o python e libs da .venv:
 - Selecione o interpretador `.venv\Scripts\python.exe` no VSCode.
+- OPCIONAL ABAIXO
+- Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
+- Dentro do vsode aperte Control + Shift + P
+- Vá em ou digite "Escolher Interpretador"
+- Clique em Insira o caminho do interpretador
+- E escolha o python.exe na pasta python-3.10.11-embed-amd64:
+
 - Terminal na raiz:
   ```
   python "primeira pessoa.py"
@@ -24,23 +31,12 @@ Rodar pelo terminal do VSCode usando o python e libs da .venv:
   pyton "GLB Mundo Virtual.py"
   ```
 
- - OPCIONAL ABAIXO
-- Adicione o python.exe dentro de python-3.10.11-embed-amd64 como seu interpretador.
-- Dentro do vsode aperte Control + Shift + P
-- Vá em ou digite "Escolher Interpretador"
-- Clique em Insira o caminho do interpretador
-- E escolha o python.exe na pasta python-3.10.11-embed-amd64:
-
 ## Essa parte abaixo foi feita no Pc da faculdade, apenas o guia acima funcionou em outra maquina além da minha de casa que já tinha Python.
 
 
-Guia mais técnico para instalar o ambiente com e sem o .venv? Só testei usando o o .venv
+Guia mais técnico para instalar o ambiente com .venv
 
 1) Extraia o ZIP inteiro para uma pasta sem espaços protegidos.
-2) Execute um dos atalhos:
-   - run_primeira_pessoa.bat
-   - run_3a_pessoa.bat
-3) Os .bat usam primeiro `.venv\Scripts\python.exe` e, se faltar, o runtime embed `python-3.10.11-embed-amd64\python.exe`. As dependências (incluindo FBX) já estão em `.venv\Lib\site-packages`.
 
 Conteúdo offline incluso OPCIONAL!!!!!!!(FBX SDK):
 - Instalador original: `fbx202037_fbxpythonsdk_win.exe` esse é o SDK necessário para rodar os FBX mas já deixei extraído dentro de uma pasta chamada `Arquivos SDK para extraidos do fbx202037_fbxpythonsdk_win.exe/2020.3.7/`
@@ -65,7 +61,6 @@ Rodar pelo terminal do VSCode usando o python e libs da .venv:
   python "3º pessoa.py"
   python "GLB Mundo Virtual.py"
   ```
-
 
 Requisitos rapidos:
 - Windows 64 bits com driver OpenGL 3.3+ ativo.
