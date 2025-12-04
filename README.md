@@ -18,8 +18,9 @@ Rodar pelo terminal do VSCode usando o python e libs da .venv:
 - Selecione o interpretador `.venv\Scripts\python.exe` no VSCode.
 - Terminal na raiz:
   ```
-  python "05 - open_world_simulation.py"
-  python "05 - advanced_world.py"
+  python "primeira pessoa.py"
+  python "3º pessoa.py"
+  pyton "GLB Mundo Virtual.py"
   ```
 
  - OPCIONAL ABAIXO
@@ -38,8 +39,8 @@ Guia mais técnico para instalar o ambiente com e sem o .venv? Só testei usando
 
 1) Extraia o ZIP inteiro para uma pasta sem espaços protegidos.
 2) Execute um dos atalhos:
-   - run_open_world_simulation.bat
-   - run_advanced_world.bat
+   - run_primeira_pessoa.bat
+   - run_3a_pessoa.bat
 3) Os .bat usam primeiro `.venv\Scripts\python.exe` e, se faltar, o runtime embed `python-3.10.11-embed-amd64\python.exe`. As dependências (incluindo FBX) já estão em `.venv\Lib\site-packages`.
 
 Conteúdo offline incluso OPCIONAL!!!!!!!(FBX SDK):
@@ -61,9 +62,11 @@ Rodar pelo terminal do VSCode usando o python e libs da .venv:
 - Selecione o interpretador `.venv\Scripts\python.exe` no VSCode.
 - Terminal na raiz:
   ```
-  python "05 - open_world_simulation.py"
-  python "05 - advanced_world.py"
+  python "primeira pessoa.py"
+  python "3º pessoa.py"
+  python "GLB Mundo Virtual.py"
   ```
+
 
 Requisitos rapidos:
 - Windows 64 bits com driver OpenGL 3.3+ ativo.
